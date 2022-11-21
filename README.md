@@ -68,3 +68,7 @@ docker run -it --rm -v $(pwd):/code --workdir /code maven mvn clean package -e
 docker run -it --rm -p 8081:8081  -v $(pwd):/code --workdir /code maven mvn spring-boot:run
 ``````
 
+### Run Gradle
+Compile, test, jar: gradle build
+Run: gradle.bootRun (Verificar modo Background)
+Test: Curl-XGET 'http://localhost:8081/rest/mscovid/test?msg=testing'
