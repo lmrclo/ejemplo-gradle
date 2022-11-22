@@ -1,5 +1,15 @@
 pipeline {
     agent any
+    tools{
+        gradle 'grdl-lmrclo'
+        maven 'mvn-lmrclo'
+    }
+
+
+
+
+
+
 	stages {
         stage('Compile') {
             steps {
@@ -23,7 +33,9 @@ pipeline {
             steps{
                 withSonarQubeEnv('SonarQB_lmrclo') {
 					sh 'mvn clean package sonar:sonar'
+                    
                 }
+                Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build
             }
         }
         stage('Quality Gate') {
